@@ -34,7 +34,6 @@ export const createUser = async (req, res) => {
         // Considering 7 ounces of water = 1 glass
         const goal = Math.round(totalOuncesOfWaterRequired / 7);
         user.goal = goal;
-        // let timeGapToDrink = Math.parseFloat(1440/goal);
 
         const fetchedUser = await UserModel.findOne({name: user.name});
         if (fetchedUser) {

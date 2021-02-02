@@ -15,3 +15,18 @@ export const drinkWater = async (req, res) => {
 		res.status(400).json({ message: error.message });
 	}
 };
+
+export const getAllDetails = async (req, res) => {
+	const userObject = req.body;
+console.log(userObject.name);
+	try {
+		const allUsersArray = await DrinkModel.find({ name: userObject.name });
+		if (allUsersArray && allUsersArray.length > 0) {
+			res.status(200).json(allUsersArray);
+		} else {
+			res.status(400).json({ message: 'Details not fetched.' });
+		}
+	} catch (error) {
+		res.status(400).json({ message: error.message });
+	}
+};
