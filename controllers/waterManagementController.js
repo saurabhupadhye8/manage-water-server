@@ -18,7 +18,6 @@ export const drinkWater = async (req, res) => {
 
 export const getAllDetails = async (req, res) => {
 	const userObject = req.body;
-console.log(userObject.name);
 	try {
 		const allUsersArray = await DrinkModel.find({ name: userObject.name });
 		if (allUsersArray && allUsersArray.length > 0) {
